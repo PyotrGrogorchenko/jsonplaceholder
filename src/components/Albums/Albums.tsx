@@ -18,7 +18,7 @@ const Albums: FC<Props> = (props) => {
 
   const [albums, setAlbums] = useState<Album[]>([])
   const [page, setPage] = useState(1)
-  const [id, setId] = useState(0)
+  const [id, setId] = useState(-1)
 
   const { enqueueSnackbar } = useSnackbar()
 

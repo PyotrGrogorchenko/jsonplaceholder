@@ -1,7 +1,5 @@
-<a href="https://cursor-games-app.herokuapp.com/"><img height="80" src="https://i.ibb.co/fnfMS6W/logo-git.png"></a>  
-[![app](https://img.shields.io/badge/deploy-passing-green)](https://cursor-games-app.herokuapp.com/)
-
-{JSON} Placeholder
+<a href="https://jsonplaceholder-app.herokuapp.com/"><span>{JSON} Placeholder</span></a>  
+[![app](https://img.shields.io/badge/deploy-passing-green)](https://jsonplaceholder-app.herokuapp.com/)
 
 ## Languages and tools
 

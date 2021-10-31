@@ -37,6 +37,7 @@ const Photos: FC<Props> = (props) => {
   }, [page])
 
   useEffect(() => {
+    if (albumId < 0) return
     getData(true)
   }, [albumId])
 
@@ -51,7 +52,7 @@ const Photos: FC<Props> = (props) => {
 
   return (
     <>
-      <Pagination count={count} page={page} color='primary' onChange={onPagination}/>
+      <Pagination className={classes.pagination} count={count} page={page} color='primary' onChange={onPagination}/>
       <Box className={classes.gridRoot}>
         <Grid container>
           {photos.map((photo) => (

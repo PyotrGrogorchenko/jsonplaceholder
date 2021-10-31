@@ -7,5 +7,8 @@ export const styles = () => createStyles({
   },
   gridItem: {
     padding: '5px'
+  },
+  pagination: {
+    marginLeft: '100px'
   }
 })

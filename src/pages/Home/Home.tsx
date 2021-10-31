@@ -4,7 +4,7 @@ import { Albums } from '@components/Albums'
 import { Photos } from '@components/Photos'
 
 const Home: FC = () => {
-  const [albumId, setAlbumId] = useState(0)
+  const [albumId, setAlbumId] = useState(-1)
 
   const onAlbum = (cbAlbumId: number) => {
     setAlbumId(cbAlbumId)

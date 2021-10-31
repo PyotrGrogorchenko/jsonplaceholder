@@ -17,9 +17,9 @@ export type ResPhotos = {
 } & ResBase
 
 export const getPhotos = async (data: {page: number, albumId?: number}): Promise<ResPhotos | ResBase> => {
-  const { page, albumId } = data
+  const { page, albumId = 0 } = data
   try {
-    return await getTransport().get(`${url.photos}?_page=${page} ${albumId && `&albumId=${albumId}`}`)
+    return await getTransport().get(`${url.photos}?_page=${page} ${albumId > 0 ? `&albumId=${albumId}` : ''}`)
   } catch (err) {
     return getErrorResponse(err)
   }
