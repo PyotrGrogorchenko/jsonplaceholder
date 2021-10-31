@@ -1,7 +1,7 @@
 {
-    "name": "cursor-games",
+    "name": "jsonplaceholder",
     "version": "1.0.0",
-    "description": "cursor-games",
+    "description": "jsonplaceholder",
     "main": "spa/server.js",
     "scripts": {
         "dev": "webpack serve --mode=development --progress --host 0.0.0.0 --config spa/webpack/config.dev.ts",
