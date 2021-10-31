@@ -1,4 +1,5 @@
-<a href="https://jsonplaceholder-app.herokuapp.com/"><span>{JSON} Placeholder</span></a>  
+<a href="https://jsonplaceholder-app.herokuapp.com/"><span>{JSON} Placeholder-app</span></a>  
+
 [![app](https://img.shields.io/badge/deploy-passing-green)](https://jsonplaceholder-app.herokuapp.com/)
 
 ## Languages and tools
