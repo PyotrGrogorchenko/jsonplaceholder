@@ -17,7 +17,7 @@ const Photos: FC<Props> = (props) => {
 
   const { enqueueSnackbar } = useSnackbar()
 
-  const count = useMemo(() => (albumId ? 5 : 500), [albumId])
+  const count = useMemo(() => (albumId > 0 ? 5 : 500), [albumId])
 
   const getData = useCallback((reset: boolean) => {
     getPhotos({ page, albumId })
