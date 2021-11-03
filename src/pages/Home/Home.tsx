@@ -1,27 +1,22 @@
-import React, { FC, useState } from 'react'
+import React, { FC } from 'react'
 import { Grid } from '@mui/material'
 import { Albums } from '@components/Albums'
 import { Photos } from '@components/Photos'
+import { PhotosProvider } from '@components/providers/PhotosProvider'
 
-const Home: FC = () => {
-  const [albumId, setAlbumId] = useState(-1)
-
-  const onAlbum = (cbAlbumId: number) => {
-    setAlbumId(cbAlbumId)
-  }
-
-  return (
-    <>
+const Home: FC = () => (
+  <>
+    <PhotosProvider>
       <Grid container>
         <Grid item key='albums' md={4} xs={3}>
-          <Albums cb={onAlbum}/>
+          <Albums/>
         </Grid>
         <Grid item key='photos' md={8} xs={9}>
-          <Photos albumId={albumId}/>
+          <Photos/>
         </Grid>
       </Grid>
-    </>
-  )
-}
+    </PhotosProvider>
+  </>
+)
 
 export const HomeTSX = Home

@@ -6,16 +6,19 @@ import { withStyles } from '@material-ui/core'
 import { getPhotos, Photo } from '@api/jsonplaceholder/photos'
 import { Card } from '@components/UI/Card'
 import { useSnackbar } from 'notistack'
+import { usePhotos } from '@components/providers/PhotosProvider'
 import { styles } from './styles'
 import { Props } from './types'
 
 const Photos: FC<Props> = (props) => {
-  const { classes, albumId } = props
+  const { classes } = props
 
   const [photos, setPhotos] = useState<Photo[]>([])
   const [page, setPage] = useState(1)
 
   const { enqueueSnackbar } = useSnackbar()
+  const photosContext = usePhotos()
+  const { albumId } = photosContext
 
   const count = useMemo(() => (albumId > 0 ? 5 : 500), [albumId])
 
