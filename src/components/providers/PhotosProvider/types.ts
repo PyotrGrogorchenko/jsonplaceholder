@@ -6,5 +6,5 @@ export type Props = {
 
 export type Context = {
   albumId: number,
-  updateAlbumId:(newId: number) => void
+  putAlbumId:(newId: number) => void
 }

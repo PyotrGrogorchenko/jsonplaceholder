@@ -21,7 +21,7 @@ const Albums: FC<Props> = () => {
   const { enqueueSnackbar } = useSnackbar()
 
   const photosContext = usePhotos()
-  const { albumId, updateAlbumId } = photosContext
+  const { albumId, putAlbumId } = photosContext
 
   useEffect(() => {
     getAlbums({ page })
@@ -37,7 +37,7 @@ const Albums: FC<Props> = () => {
 
   const onAlbum = useCallback((e: OnClick, newId: number) => {
     e.preventDefault()
-    updateAlbumId(newId)
+    putAlbumId(newId)
   }, [])
 
   const onPagination = useCallback((e: React.ChangeEvent<unknown>, newPage: number) => {

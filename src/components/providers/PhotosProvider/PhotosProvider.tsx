@@ -11,10 +11,10 @@ const PhotosProvider: FC<Props> = (props) => {
   const { children } = props
 
   const [albumId, setAlbumId] = useState(-1)
-  const updateAlbumId = useCallback((newId) => setAlbumId(newId), [])
+  const putAlbumId = useCallback((newId) => setAlbumId(newId), [])
 
   return (
-    <PhotosContext.Provider value={{ albumId, updateAlbumId }}>
+    <PhotosContext.Provider value={{ albumId, putAlbumId }}>
       {children}
     </PhotosContext.Provider>
   )
