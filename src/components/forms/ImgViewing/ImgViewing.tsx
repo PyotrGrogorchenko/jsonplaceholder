@@ -1,22 +1,29 @@
-import React, { FC, useCallback } from 'react'
+import React, {
+  FC, useCallback, forwardRef, useState, useImperativeHandle
+} from 'react'
 import {
   Button, DialogActions, DialogContent, DialogTitle, Dialog
 } from '@mui/material'
 import { Props } from './types'
 
-const ImgViewing: FC<Props> = (props: Props) => {
-  const {
-    title, src, cbClose
-  } = props
+const ImgViewing: FC<Props> = forwardRef((props, ref) => {
+  const { title, src } = props
 
-  const onClose = useCallback(() => {
-    cbClose()
+  const [open, setOpen] = useState(false)
+
+  const onClose = useCallback((e: OnClick) => {
+    e.preventDefault()
+    setOpen(false)
   }, [])
+
+  useImperativeHandle(ref, () => ({
+    setOpen
+  }), [])
 
   return (
     <>
       <Dialog
-        open
+        open={open}
         aria-labelledby='viewing-dialog'
       >
         <DialogTitle id='viewing-dialog_title'>
@@ -33,6 +40,6 @@ const ImgViewing: FC<Props> = (props: Props) => {
       </Dialog>
     </>
   )
-}
+})
 
 export const ImgViewingTSX = ImgViewing

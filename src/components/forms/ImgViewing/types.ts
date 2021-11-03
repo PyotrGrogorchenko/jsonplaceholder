@@ -1,5 +1,9 @@
+export type PublicMethods = {
+  setOpen: React.Dispatch<React.SetStateAction<boolean>>
+}
+
 export type Props = {
   title: string,
   src: string,
-  cbClose: () => void
+  ref: React.ForwardedRef<PublicMethods>
 }

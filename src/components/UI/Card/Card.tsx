@@ -1,4 +1,6 @@
-import React, { FC, useCallback, useState } from 'react'
+import React, {
+  FC, RefObject, useCallback, useRef
+} from 'react'
 import {
   Typography, Card as CardMui, CardActionArea, CardMedia, CardContent, IconButton, CardActions
 } from '@mui/material'
@@ -7,6 +9,7 @@ import DeleteIcon from '@mui/icons-material/Delete'
 import { deletePhoto } from '@api/jsonplaceholder/photos'
 import { ImgViewing } from '@components/forms/ImgViewing'
 import { useSnackbar } from 'notistack'
+import { PublicMethods } from '@components/forms/ImgViewing/types'
 import { styles } from './styles'
 import { Props } from './types'
 
@@ -16,8 +19,7 @@ const Card: FC<Props> = (props) => {
     id, albumId, title, url
   } = photo
 
-  const [viewing, setViewing] = useState(false)
-
+  const imgViewingRef = useRef() as RefObject<PublicMethods>
   const { enqueueSnackbar } = useSnackbar()
 
   const onDelete = useCallback((e: OnClick) => {
@@ -36,12 +38,8 @@ const Card: FC<Props> = (props) => {
 
   const onCard = useCallback((e: OnClick) => {
     e.preventDefault()
-    setViewing(true)
-  }, [id])
-
-  const cbCloseViewing = useCallback(() => {
-    setViewing(false)
-  }, [id])
+    imgViewingRef.current?.setOpen(true)
+  }, [imgViewingRef])
 
   return (
     <>
@@ -64,7 +62,7 @@ const Card: FC<Props> = (props) => {
           </IconButton>
         </CardActions>
       </CardMui>
-      {viewing && <ImgViewing title={title} src={url} cbClose={cbCloseViewing}/>}
+      <ImgViewing title={title} src={url} ref={imgViewingRef}/>
     </>
   )
 }
